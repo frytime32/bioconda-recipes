@@ -22,7 +22,7 @@ requirements:
     - setuptools
     - pandas
     - pyarrow
-    - numpy
+    - numpy >=1.16
     - sqlalchemy
     - xlsxwriter
     - xlrd
@@ -31,7 +31,7 @@ requirements:
     - python >=3
     - pandas
     - pyarrow
-    - numpy
+    - numpy >=1.16
     - sqlalchemy
     - xlsxwriter
     - xlrd
