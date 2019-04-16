@@ -1,0 +1,58 @@
+{% set name = "expressionable" %}
+{% set version = "1.0" %}
+{% set hash_type = "sha256" %}
+{% set hash_value = "2df2099427c0d17b5e77f96f4a2432a89433d9c453d79e4206c14e6863a21628" %}
+
+package:
+  name: '{{ name|lower }}'
+  version: '{{ version }}'
+
+source:
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: 2df2099427c0d17b5e77f96f4a2432a89433d9c453d79e4206c14e6863a21628
+
+build:
+  noarch: python
+  number: 0
+  script: python setup.py install --single-version-externally-managed --record=record.txt
+
+requirements:
+  host:
+    - python >=3
+    - setuptools
+    - pandas
+    - pyarrow
+    - numpy
+    - sqlalchemy
+    - xlsxwriter
+    - tables
+    - xlrd
+    - nbformat
+  run:
+    - python >=3
+    - pandas
+    - pyarrow
+    - numpy
+    - sqlalchemy
+    - xlsxwriter
+    - tables
+    - xlrd
+    - nbformat
+
+test:
+  imports:
+    - expressionable
+    - expressionable.errors
+    - expressionable.files
+    - expressionable.utils
+
+about:
+  home: https://github.com/srp33/ExpressionAble
+  license: MIT
+  license_family: MIT
+  summary: A tool for managing large datasets
+
+extra:
+  recipe-maintainers:
+    - srp33
+    - frytime32
